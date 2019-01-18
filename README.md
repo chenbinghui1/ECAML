@@ -41,12 +41,7 @@ uncomment "energy confusion" codes in train_confusion.prototxt to use our method
 - After training, the model will be stored at folder run/, then run ./extractfeatures.sh to extract testing image features(feature files will be stored in folder features/)
 
 ## Evaluation
-- run code in folder ~/ECAML/evaluation K = 98;   %cub 100 cars 98 ebay 11316 flower51
-label_num=8131;%cub 5924  cars 8131  ebay 60502 flower4696
-p=importdata('../examples/car/car_test.txt');%cub ../../caffe/examples/model/cub/val.txt
-%cars  ../../caffe/examples/model/cars/car_test.txt
-%ebay ../../caffe/examples/model/ebay/ebay_test.txt
-%flower flower_test.txt
+- run code in folder ~/ECAML/evaluation 
 
 ## Citation
 If our code is helpful, please kindly cite the following papers:
