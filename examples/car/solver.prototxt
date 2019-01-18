@@ -5,9 +5,9 @@ base_lr: 0.00001
 lr_policy: "multistep"
 gamma: 0.8
 # stepsize should also be lower, as we're closer to being done
-stepvalue: 25000
+stepvalue: 10000
 display: 50
-max_iter: 25000
+max_iter: 10000
 momentum: 0.9
 momentum2:0.999
 weight_decay: 0.0002
