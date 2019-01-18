@@ -1,0 +1,66 @@
+//Author Binghui Chen
+//add these below to your own LayerParameter
+message LayerParameter {
+optional NormalizationParameter normalization_param = 161;
+optional BIERLossParameter bier_loss_param = 162;
+optional RankParameter rank_param = 163;
+optional NpairLossParameter npair_loss_param = 164;
+optional EnergyConfusionLossParameter energy_confusion_loss_param = 165;
+}
+
+
+
+message RankParameter {//for triplet loss
+  optional uint32 neg_num = 1 [default = 1]; //means how many negative pair you want for each positive pair, if it is 4, that means there are 4 triplets
+  optional uint32 pair_size = 2 [default = 1]; //just means inputs are pairs of images
+  optional float hard_ratio = 3; //
+  optional float rand_ratio = 4;//
+  optional float margin = 5 [default = 0.5];//
+}
+message NpairLossParameter {//for npair
+  // margin for dissimilar pair
+ optional int32  pic_num = 1;//no use
+  optional int32 categories = 2;//no use
+  optional int32 kcenter = 3;//m*n combination: set to n-1
+  optional float margin = 4 [default = 1.0];//no use
+  optional int32 kcenter_n = 5;//(m-1)*n
+  optional float coeff = 6 [default = 1];//x_norm
+  optional float k = 7 [default = 1];//margin constraint strength
+}
+message BIERLossParameter {//BIER based on binomial deviance loss
+  optional float alpha = 1 [default = 2];
+  optional float beta = 2 [default = 0.5];
+  optional float cost_p = 3 [default = 1];//for positive cost
+  optional float cost_n = 4 [default = 25];//for negative cost
+  optional float shrinkage =5 [default = 0.06];//for simpler variant of boosting algorithm
+}
+message NormalizationParameter {
+    enum Norm {
+      L1 = 1;
+      L2 = 2;
+    }
+    // Specify the Norm to use L1 or L2
+    optional Norm norm = 1 [default = L2];
+}
+message EnergyConfusionLossParameter {//binomial deviance loss
+  optional int32 random_num = 1 [default = 10];// for each sample
+}
+message InnerProductParameter {
+  optional uint32 num_output = 1; // The number of outputs for the layer
+  optional bool bias_term = 2 [default = true]; // whether to have bias terms
+  optional FillerParameter weight_filler = 3; // The filler for the weight
+  optional FillerParameter bias_filler = 4; // The filler for the bias
+
+  // The first axis to be lumped into a single inner product computation;
+  // all preceding axes are retained in the output.
+  // May be negative to index from the end (e.g., -1 for the last axis).
+  optional int32 axis = 5 [default = 1];
+  // Specify whether to transpose the weight matrix or not.
+  // If transpose == true, any operations will be performed on the transpose
+  // of the weight matrix. The weight matrix itself is not going to be transposed
+  // but rather the transfer flag of operations will be toggled accordingly.
+  optional bool transpose = 6 [default = false];
+  optional bool bier_init = 7 [default = false];//for iccv17 BIER loss initialization. only .cu version
+  optional float lamda = 8 [default = 100.0];//for iccv17 BIER loss initialization. only .cu version
+  optional bool param_propagate_down = 9 [default = true];//
+}
