@@ -28,7 +28,7 @@ Note only that you should replace your code of {message InnerProductParameter{..
   mkdir ~/caffe-master/examples/car/car_ims_256_nopadding
 ```
 - Download images of [Cars196](http://imagenet.stanford.edu/internal/car196/car_ims.tgz) dataset, and move car_ims/ to ~/caffe-master/examples/car/car_ims_256_nopadding
-- Download our [training_list]() (~200MB), and move it to ~/caffe-master/examples/car/
+- Download our [training_list](https://pan.baidu.com/s/14BY3YUUcFV76LX0qk6yWYg) (~200MB), and move it to ~/caffe-master/examples/car/
 ```
 you can create your own list, as in our paper, the list is created by random selecting in 65*2 manner (with 65 classes and 2 images per class)
 ```
