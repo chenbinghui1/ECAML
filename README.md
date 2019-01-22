@@ -1,4 +1,4 @@
-## Code for AAAI 2019 Paper "[Energy Confused Adversarial Metric Learning for Zero-Shot Image Retrieval and Clustering](bhchen.cn)"
+## Code for AAAI 2019 Paper "[Energy Confused Adversarial Metric Learning for Zero-Shot Image Retrieval and Clustering](http://bhchen.cn)"
 
 This code is developed based on [Caffe](https://github.com/BVLC/caffe/).
 
